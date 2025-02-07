@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animation keyframes with cross-browser support */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.9);
+  }
+  
+  70% {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(234, 88, 12, 0);
+  }
+  
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
+  }
+}
+
+.pulse {
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}
+
+/* iOS input styling fixes */
+@supports (-webkit-touch-callout: none) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on focus in iOS */
+  }
+}
+
+/* Smooth scrolling for all browsers */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .hover\:bg-blue-100:hover {
+    background-color: transparent;
+  }
+}
+
+/* Fix for mobile Safari 100vh issue */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
